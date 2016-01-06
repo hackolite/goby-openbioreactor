@@ -39,15 +39,6 @@ Adafruit_DCMotor *myMotor4 = AFMS.getMotor(4);
 // You can also make another motor on port M2
 //Adafruit_DCMotor *myOtherMotor = AFMS.getMotor(2);
 
-
-int mq3_analogPin = A0; // connected to the output pin of MQ3
-int mq2_analogPin = A1; // connected to the output pin of MQ3
-int mq4_analogPin = A2; // connected to the output pin of MQ3
-int mq5_analogPin = A3; // connected to the output pin of MQ3
-int mq6_analogPin = A4; // connected to the output pin of MQ3
-int mq7_analogPin = A5; // connected to the output pin of MQ3
-
-
 void setup() {
   // initialize serial communication:
   Serial.begin(9600);
@@ -80,27 +71,6 @@ void setup() {
 void loop() {
   uint8_t i;
   // give ample warmup time for readings to stabilize
-int mq3_value = analogRead(mq3_analogPin);
-int mq2_value = analogRead(mq2_analogPin);
-int mq4_value = analogRead(mq4_analogPin);
-int mq5_value = analogRead(mq5_analogPin);
-int mq6_value = analogRead(mq6_analogPin);
-int mq7_value = analogRead(mq7_analogPin);
-
-Serial.print(" {'temp': ");
-Serial.print(mq6_value);
-Serial.print(",'ph': ");
-Serial.print(mq4_value);
-Serial.print(",'density': ");
-Serial.print(mq5_value);
-Serial.print(",'oxygen': ");
-Serial.print(mq3_value);
-Serial.print(",'coo': ");
-Serial.print(mq7_value);
-Serial.print(",'ethanol': ");
-Serial.print(mq2_value);
-Serial.println("}");
-delay(1000); //Just here to slow down the output.
 
   // read the sensor:
   if (Serial.available() > 0) {
